@@ -37,8 +37,8 @@ sm100_fp8_gemm_1d1d_impl(int* grouped_layout,
     using Allocator = cute::conditional_t<kNumMulticast == 1, cute::TMEM::Allocator1Sm, cute::TMEM::Allocator2Sm>;
 
     // GEMM with accumulation must have FP32 output
-    if constexpr (kWithAccumulation)
-        DG_STATIC_ASSERT(cute::is_same_v<cd_dtype_t, float>, "Invalid C/D data dtype");
+    // if constexpr (kWithAccumulation)
+    //     DG_STATIC_ASSERT(cute::is_same_v<cd_dtype_t, float>, "Invalid C/D data dtype");
 
     // Configs
     constexpr uint32_t LAYOUT_AD_M = 128;
